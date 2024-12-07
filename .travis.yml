@@ -30,7 +30,7 @@ after failure:
 
 deploy:
   provider: script
-  script: bash -c "echo \"${DOCKER_PASSWORD}\" | docker login --username \"kapive"
-    --password-stdin"
+  script: ./script/deploy.sh
   on:
-    all_branches: true
+    branch: master
+    condition: "$BUILD_TARGET=='./monolithic/ui'"
