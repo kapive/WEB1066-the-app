@@ -2,13 +2,13 @@ language: java
 jdk: oraclejdk8
 
 env:
-  - COVERAGE=0.05 SERVICE=./monolithic/ui
-  - COVERAGE=0.14 SERVICE=./monolithic/service/cart
-  - COVERAGE=0.0 SERVICE=./monolithic/service/user
-  - COVERAGE=0.36 SERVICE=./monolithic/repository/order
-  - COVERAGE=0.0 SERVICE=./monolithic/repository/cart
-  - COVERAGE=0.12 SERVICE=./monolithic/repository/product
-  - COVERAGE=0.31 SERVICE=./monolithic/repository/user
+  - COVERAGE=0.5 SERVICE=./monolithic/ui
+  - COVERAGE=0.5 SERVICE=./monolithic/service/cart
+  - COVERAGE=0.5 SERVICE=./monolithic/service/user
+  - COVERAGE=0.5 SERVICE=./monolithic/repository/order
+  - COVERAGE=0.5 SERVICE=./monolithic/repository/cart
+  - COVERAGE=0.5 SERVICE=./monolithic/repository/product
+  - COVERAGE=0.5 SERVICE=./monolithic/repository/user
 
 install:
   - "./gradlew clean jar"
