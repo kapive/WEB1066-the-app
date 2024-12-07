@@ -2,6 +2,7 @@ language: java
 jdk: oraclejdk8
 
 env:
+  matrix:
   - COVERAGE=0.5 SERVICE=./monolithic/ui
   - COVERAGE=0.5 SERVICE=./monolithic/service/cart
   - COVERAGE=0.5 SERVICE=./monolithic/service/user
@@ -9,6 +10,11 @@ env:
   - COVERAGE=0.5 SERVICE=./monolithic/repository/cart
   - COVERAGE=0.5 SERVICE=./monolithic/repository/product
   - COVERAGE=0.5 SERVICE=./monolithic/repository/user
+  global:
+  secure: ShouldBeEncriptionKeyHere....
+
+services:
+  - docker
 
 install:
   - "./gradlew clean jar"
@@ -24,6 +30,7 @@ after failure:
 
 deploy:
   provider: script
-  script: echo 'WIP'
+  script: bash -c "echo \"${DOCKER_PASSWORD}\" | docker login --username \"kapive"
+    --password-stdin"
   on:
     all_branches: true
